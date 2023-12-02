@@ -1,0 +1,43 @@
+// ref: https://containers.dev/guide/dockerfile#docker-compose
+{
+  "name": "Codespaces Go Template Repository",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "coenraads.bracket-pair-colorizer-2",
+        "eamodio.gitlens",
+        "github.vscode-pull-request-github",
+        "ms-azuretools.vscode-docker",
+        "ms-vsliveshare.vsliveshare",
+        "vscode-icons-team.vscode-icons",
+        "visualstudioexptteam.vscodeintellicode",
+        "ms-vscode.go",
+        "github.copilot",
+        "esbenp.prettier-vscode",
+        "mhutchie.git-graph"
+      ],
+      "settings": {
+        "files.exclude": {
+          "**/CODE_OF_CONDUCT.md": true,
+          "**/LICENSE": true
+        }
+      }
+    }
+  },
+
+  // imageの指定
+  "image": "mcr.microsoft.com/devcontainers/go:0-1.20-bullseye",
+  // 任意のDockerfileを利用する場合は、以下のコメントアウトを外し同じ階層にDockerfileを配置して、imageをコメントアウト。
+  // "build": {
+  //   "dockerfile": "Dockerfile"
+  // },
+
+  // Docker-in-Docker の設定
+  "features": {
+    "ghcr.io/devcontainers/features/docker-in-docker:2": {}
+  }
+
+  // prebuild
+  // "onCreateCommand": "cd /workspaces/drobe && sh script/codespace/prebuilt.sh", // prebuild される時に実行されるコマンド
+  // "postCreateCommand": "go version"
+}
